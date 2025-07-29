@@ -17,7 +17,6 @@ type Task = {
 };
 
 export function Pomodoro() {
-  const [isMounted, setIsMounted] = useState(false);
   const [mode, setMode] = useState<'pomodoro' | 'shortBreak' | 'longBreak'>('pomodoro');
   const [time, setTime] = useState(25 * 60);
   const [isActive, setIsActive] = useState(false);
@@ -39,39 +38,32 @@ export function Pomodoro() {
     setMode(newMode);
     setTime(timeSettings[newMode]);
     setProgress(100);
-  }, [timeSettings]);
-
-  useEffect(() => {
-    setIsMounted(true);
   }, []);
 
-
   useEffect(() => {
-    if (isMounted) {
-      try {
-        const savedTasks = localStorage.getItem('pomodoroTasks');
-        if (savedTasks) {
-          setTasks(JSON.parse(savedTasks));
-        }
-      } catch (error) {
-        console.error("Failed to parse tasks from localStorage", error);
-      }
-    }
     // if (typeof window !== 'undefined') {
+    //     try {
+    //         const savedTasks = localStorage.getItem('pomodoroTasks');
+    //         if (savedTasks) {
+    //             setTasks(JSON.parse(savedTasks));
+    //         }
+    //     } catch (error) {
+    //         console.error("Failed to parse tasks from localStorage", error);
+    //     }
     //     audioRef.current = new Audio('/notification.mp3');
     // }
     resetTimer('pomodoro');
-  }, [resetTimer, isMounted]);
+  }, [resetTimer]);
 
-  useEffect(() => {
-    if (isMounted) {
-        try {
-            localStorage.setItem('pomodoroTasks', JSON.stringify(tasks));
-        } catch (error) {
-            console.error("Failed to save tasks to localStorage", error);
-        }
-    }
-  }, [tasks, isMounted]);
+//   useEffect(() => {
+//     if (typeof window !== 'undefined') {
+//         try {
+//             localStorage.setItem('pomodoroTasks', JSON.stringify(tasks));
+//         } catch (error) {
+//             console.error("Failed to save tasks to localStorage", error);
+//         }
+//     }
+//   }, [tasks]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
