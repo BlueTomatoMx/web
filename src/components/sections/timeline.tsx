@@ -1,3 +1,4 @@
+"use client";
 import { FileText, Lightbulb, Rocket, Users, Wrench } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {

@@ -25,7 +25,7 @@ export function Pomodoro() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTask, setNewTask] = useState('');
 
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  // const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const timeSettings = {
     pomodoro: 25 * 60,
@@ -38,28 +38,28 @@ export function Pomodoro() {
     setMode(newMode);
     setTime(timeSettings[newMode]);
     setProgress(100);
-  }, []);
+  }, [timeSettings]);
 
   useEffect(() => {
-    try {
-      const savedTasks = localStorage.getItem('pomodoroTasks');
-      if (savedTasks) {
-        setTasks(JSON.parse(savedTasks));
-      }
-    } catch (error) {
-      console.error("Failed to parse tasks from localStorage", error);
-    }
+    // try {
+    //   const savedTasks = localStorage.getItem('pomodoroTasks');
+    //   if (savedTasks) {
+    //     setTasks(JSON.parse(savedTasks));
+    //   }
+    // } catch (error) {
+    //   console.error("Failed to parse tasks from localStorage", error);
+    // }
 
-    if (typeof window !== 'undefined') {
-        audioRef.current = new Audio('/notification.mp3');
-    }
+    // if (typeof window !== 'undefined') {
+    //     audioRef.current = new Audio('/notification.mp3');
+    // }
 
     resetTimer('pomodoro');
   }, [resetTimer]);
 
-  useEffect(() => {
-    localStorage.setItem('pomodoroTasks', JSON.stringify(tasks));
-  }, [tasks]);
+  // useEffect(() => {
+  //   localStorage.setItem('pomodoroTasks', JSON.stringify(tasks));
+  // }, [tasks]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
@@ -70,9 +70,9 @@ export function Pomodoro() {
         setProgress((time / timeSettings[mode]) * 100);
       }, 1000);
     } else if (time === 0) {
-      if (audioRef.current) {
-        audioRef.current.play();
-      }
+      // if (audioRef.current) {
+      //   audioRef.current.play();
+      // }
       setIsActive(false);
       if (mode === 'pomodoro') {
         resetTimer('shortBreak');
@@ -86,7 +86,7 @@ export function Pomodoro() {
         clearInterval(interval);
       }
     };
-  }, [isActive, time, mode, resetTimer]);
+  }, [isActive, time, mode, resetTimer, timeSettings]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
