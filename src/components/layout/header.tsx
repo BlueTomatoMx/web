@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Bot, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import Image from "next/image";
 
 export function Header() {
@@ -10,7 +10,6 @@ export function Header() {
     { href: "#pomodoro", label: "Pomodoro" },
     { href: "#tech-stack", label: "Tecnologías" },
     { href: "#use-cases", label: "Casos de Uso" },
-    { href: "#ai-suggester", label: "Herramienta IA" },
     { href: "#testimonials", label: "Testimonios" },
   ];
 
@@ -48,10 +47,6 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="grid gap-6 text-lg font-medium mt-8">
-                <a href="#" className="flex items-center gap-2 text-lg font-semibold mb-4 hidden">
-                  <Bot className="h-6 w-6 text-primary" />
-                  <span className="sr-only">Blue Tomato</span>
-                </a>
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
