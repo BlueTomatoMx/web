@@ -6,7 +6,7 @@ export function Cta() {
   return (
     <section id="contact" className="w-full bg-muted py-24 sm:py-32">
       <div className="container text-center">
-        <Image src="/logo.png" alt="Blue Tomato Logo" width={80} height={80} className="mx-auto mb-6 animate-pulse" />
+        <Image src="/bluetom.png" alt="Blue Tomato Logo" width={80} height={80} className="mx-auto mb-6 animate-pulse" />
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
           ¿Listo para Iniciar tu Transformación Digital?
         </h2>
