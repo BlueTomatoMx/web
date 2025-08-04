@@ -7,7 +7,7 @@ export function Cta() {
     <section id="contact" className="w-full bg-muted py-24 sm:py-32">
       <div className="container text-center">
         <Image
-          src="/logo.png"
+          src="/logo.svg"
           alt="Blue Tomato Logo"
           width={80}
           height={80}
