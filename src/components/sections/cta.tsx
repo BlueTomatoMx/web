@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Mail, MessageCircle } from "lucide-react";
-import { Logo } from "@/components/icons/logo";
+import Image from "next/image";
 
 export function Cta() {
   return (
     <section id="contact" className="w-full bg-muted py-24 sm:py-32">
       <div className="container text-center">
-        <Logo className="h-20 w-20 mx-auto mb-6 text-primary animate-pulse" />
+        <Image src="/logo.png" alt="Blue Tomato Logo" width={80} height={80} className="mx-auto mb-6 animate-pulse" />
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
           ¿Listo para Iniciar tu Transformación Digital?
         </h2>
