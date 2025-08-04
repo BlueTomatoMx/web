@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import Image from "next/image";
+import { Logo } from "@/components/icons/logo";
 
 export function Header() {
   const navLinks = [
@@ -17,7 +17,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <a href="#" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="Blue Tomato logo" width="24" height="24" />
+          <Logo className="h-6 w-6 text-primary" />
           <span className="font-bold text-lg">Blue Tomato</span>
         </a>
 
